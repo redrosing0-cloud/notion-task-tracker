@@ -6,29 +6,18 @@
       "use": "@vercel/node"
     },
     {
-      "src": "index.html",
+      "src": "*.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/sync-notion.js",
-      "methods": ["POST", "OPTIONS"]
+      "dest": "/api/sync-notion.js"
     },
     {
       "src": "/(.*)",
       "dest": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
-      ]
     }
   ]
 }
