@@ -2,18 +2,18 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/sync-notion.js",
+      "src": "*.js",
       "use": "@vercel/node"
     },
     {
-      "src": "*.html",
+      "src": "index.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/sync-notion.js"
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
